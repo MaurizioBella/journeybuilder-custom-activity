@@ -22,8 +22,6 @@ exports.execute = async (req, res) => {
     res.status(401).json({ error: 'Unauthorized' });
   }
 
-  logger.info(data);
-
   try {
     const id = Uuidv1();
 
