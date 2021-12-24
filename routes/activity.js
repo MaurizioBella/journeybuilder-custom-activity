@@ -13,8 +13,9 @@ exports.execute = async (req, res) => {
   logger.info(req.body);
   logger.info(req.headers);
   // decode data
+  let data;
   try {
-    const data = await JWT(req.body);
+    data = await JWT(req.body);
     logger.info(data);
   } catch (error) {
     logger.error(error);
