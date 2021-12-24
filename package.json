@@ -1,8 +1,14 @@
 {
   "name": "custom-activity",
   "version": "0.0.1",
-  "description": "",
+  "description": "Demo Marketing Cloud JB Custom Activity",
   "private": true,
+  "keywords": [
+    "Marketing Cloud",
+    "Custom Activity",
+    "Heroku",
+    "JWT"
+  ],
   "main": "app.js",
   "scripts": {
     "start": "node ./bin/start",
