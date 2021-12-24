@@ -4,6 +4,7 @@
 - [Heroku](https://sfmc-jb-custom-activity-jwt.herokuapp.com/)
 
 # API Event
+- Run the JB via API Event and check the DE sfmc-jb-custom-activity-jwt
 - HTTP POST https://{{et_subdomain}}.rest.marketingcloudapis.com/interaction/v1/events
 ```
 {
