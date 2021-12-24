@@ -1,5 +1,5 @@
 # Custom Activity
-
+[Journey Builder Custom Activity Deep Dive](https://marketingautomation.isobar.ch/2020/12/07/journey-builder-custom-activity-deep-dive/)
 ### Installation
 First, install all dependencies: `npm i`
 
