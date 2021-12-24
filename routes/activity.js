@@ -10,8 +10,6 @@ const logger = require('../utils/logger');
  * @returns {Promise<void>}
  */
 exports.execute = async (req, res) => {
-  console.log(req);
-  logger.info(req.body.toString('utf8'));
   logger.info(req.headers);
   // decode data
   let data;
