@@ -16,6 +16,7 @@ exports.execute = async (req, res) => {
     logger.info(data);
   } catch (error) {
     logger.error(error);
+    res.status(401).json({ error: 'Unauthorized' });
   }
 
   logger.info(data);
