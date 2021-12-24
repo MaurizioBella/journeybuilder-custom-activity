@@ -19,7 +19,7 @@ exports.execute = async (req, res) => {
     logger.info(data);
   } catch (error) {
     logger.error(error);
-    res.status(401).json({ error: 'Unauthorized' });
+    res.status(401).send({ error: 'Unauthorized' });
   }
 
   try {
@@ -39,6 +39,7 @@ exports.execute = async (req, res) => {
     ]);
   } catch (error) {
     logger.error(error);
+    res.status(500).send();
   }
 
   res.status(200).send({
