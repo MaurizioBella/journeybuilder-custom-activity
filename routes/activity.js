@@ -10,6 +10,7 @@ const logger = require('../utils/logger');
  * @returns {Promise<void>}
  */
 exports.execute = async (req, res) => {
+  console.log(req.body);
   logger.info(req.body);
   logger.info(req.headers);
   // decode data
