@@ -1,7 +1,7 @@
-const { v1: Uuidv1 } = require('uuid');
-const JWT = require('../utils/jwtDecoder');
-const SFClient = require('../utils/sfmc-client');
-const logger = require('../utils/logger');
+const { v1: Uuidv1 } = require("uuid");
+const JWT = require("../utils/jwtDecoder");
+const SFClient = require("../utils/sfmc-client");
+const logger = require("../utils/logger");
 
 /**
  * The Journey Builder calls this method for each contact processed by the journey.
@@ -18,12 +18,18 @@ exports.execute = async (req, res) => {
     logger.info(data);
   } catch (error) {
     logger.error(error);
-    res.status(401).send({ error: 'Unauthorized' });
+    res.status(401).send({ error: "Unauthorized" });
   }
 
   try {
     const id = Uuidv1();
-
+    let msg = "DEFAULT";
+    logger.info(data.inArguments[0]);
+    if (data.inArguments[0].contactKey === "mauriziobella@gmail.com") {
+      msg = "SMS";
+    } else {
+      msg = "EMAIL";
+    }
     await SFClient.saveData(process.env.DATA_EXTENSION_EXTERNAL_KEY, [
       {
         keys: {
@@ -31,7 +37,7 @@ exports.execute = async (req, res) => {
         },
         values: {
           EmailAddress: data.inArguments[0].contactKey,
-          Text: 'Updated',
+          Text: msg,
         },
       },
     ]);
@@ -54,7 +60,7 @@ exports.execute = async (req, res) => {
   }
 
   res.status(200).send({
-    status: 'ok',
+    status: "ok",
   });
 };
 
@@ -66,7 +72,7 @@ exports.execute = async (req, res) => {
  */
 exports.save = async (req, res) => {
   res.status(200).send({
-    status: 'ok',
+    status: "ok",
   });
 };
 
@@ -77,7 +83,7 @@ exports.save = async (req, res) => {
  */
 exports.publish = (req, res) => {
   res.status(200).send({
-    status: 'ok',
+    status: "ok",
   });
 };
 
@@ -89,6 +95,6 @@ exports.publish = (req, res) => {
  */
 exports.validate = (req, res) => {
   res.status(200).send({
-    status: 'ok',
+    status: "ok",
   });
 };
